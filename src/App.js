@@ -6,6 +6,7 @@ class App extends Component {
 
     return (
       <div className="App">
+        <h1>HELLO SAGA !</h1>
         <h2>{value}</h2>
         <button onClick={onDecrement}>-</button>
         <button onClick={onIncrement}>+</button>
