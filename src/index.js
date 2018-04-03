@@ -6,8 +6,15 @@ import registerServiceWorker from "./registerServiceWorker";
 import { createStore, applyMiddleware } from "redux";
 import { reducer } from "./reducer";
 
-const store = createStore(reducer, applyMiddleware());
+import createSagaMiddleware from "redux-saga";
+import { helloSaga } from "./sagas";
+
+const sagaMiddleware = createSagaMiddleware();
+
+const store = createStore(reducer, applyMiddleware(sagaMiddleware));
 const action = type => store.dispatch({ type });
+
+sagaMiddleware.run(helloSaga);
 
 function render() {
   ReactDOM.render(
