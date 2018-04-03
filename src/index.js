@@ -9,8 +9,6 @@ import { reducer } from "./reducer";
 const store = createStore(reducer, applyMiddleware());
 const action = type => store.dispatch({ type });
 
-console.log(store.getState());
-
 ReactDOM.render(
   <App
     onIncrement={() => action("INCREMENT")}
