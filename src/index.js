@@ -9,12 +9,17 @@ import { reducer } from "./reducer";
 const store = createStore(reducer, applyMiddleware());
 const action = type => store.dispatch({ type });
 
-ReactDOM.render(
-  <App
-    onIncrement={() => action("INCREMENT")}
-    onDecrement={() => action("DECREMENT")}
-    value={store.getState()}
-  />,
-  document.getElementById("root")
-);
+function render() {
+  ReactDOM.render(
+    <App
+      onIncrement={() => action("INCREMENT")}
+      onDecrement={() => action("DECREMENT")}
+      value={store.getState()}
+    />,
+    document.getElementById("root")
+  );
+}
+
 registerServiceWorker();
+render();
+store.subscribe(render);
