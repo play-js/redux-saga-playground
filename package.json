@@ -2,7 +2,9 @@
   "name": "redux-saga-playground",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://play-js.github.io/redux-saga-playground/",
   "dependencies": {
+    "gh-pages": "^1.1.0",
     "react": "^16.3.0",
     "react-dom": "^16.3.0",
     "react-redux": "^5.0.7",
@@ -11,6 +13,8 @@
     "redux-saga": "^0.16.0"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
