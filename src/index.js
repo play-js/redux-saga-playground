@@ -7,7 +7,7 @@ import { createStore, applyMiddleware, compose } from "redux";
 import { reducer } from "./reducer";
 
 import createSagaMiddleware from "redux-saga";
-import { helloSaga } from "./sagas";
+import rootSaga from "./sagas";
 
 const composeEnhancers =
   process.env.NODE_ENV !== "production"
@@ -22,12 +22,13 @@ const store = createStore(
 );
 const action = type => store.dispatch({ type });
 
-sagaMiddleware.run(helloSaga);
+sagaMiddleware.run(rootSaga);
 
 function render() {
   ReactDOM.render(
     <App
       onIncrement={() => action("INCREMENT")}
+      onIncrementAsync={() => action("INCREMENT_ASYNC")}
       onDecrement={() => action("DECREMENT")}
       value={store.getState()}
     />,
