@@ -27,10 +27,11 @@ sagaMiddleware.run(rootSaga);
 function render() {
   ReactDOM.render(
     <App
+      value={store.getState()}
       onIncrement={() => action("INCREMENT")}
       onIncrementAsync={() => action("INCREMENT_ASYNC")}
       onDecrement={() => action("DECREMENT")}
-      value={store.getState()}
+      onRequestFetchData={() => action("FETCH_REQUESTED")}
     />,
     document.getElementById("root")
   );

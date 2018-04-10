@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.props.onRequestFetchData();
+  }
   render() {
     const { value, onIncrement, onDecrement, onIncrementAsync } = this.props;
 
